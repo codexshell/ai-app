@@ -137,7 +137,7 @@ const goToLivePage = (event) => {
           <span
             v-if="userStore.showAlternateInformation"
             class="absolute top-[144px] left-[150px] font-brand-1 text-sm font-medium leading-[22px] tracking-[-0.16em] text-brand-gray"
-            >Fitness</span
+            >{{ userStore.imageDescription }}</span
           >
         </span>
       </div>

@@ -9,9 +9,11 @@ module.exports = {
       },
       colors: {
         "brand-black": "#050505",
-        "brand-white": "#ffffff",
+        "brand-white": "#FFFFFF",
         "brand-blue": "#4285F4",
         "brand-gray": "#7F8084",
+        "brand-gray-2": "#2A2A2A",
+        "brand-green": "#02250C",
         "brand-button-gray": "#FFFFFF33",
       },
       backgroundImage: {

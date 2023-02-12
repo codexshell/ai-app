@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
 import logoUrl from "@/assets/images/logo.svg";
-import heroImageUrl from "@/assets/images/hero-image.png";
+import videoUrl from "@/assets/videos/finaldemo.mp4";
 </script>
 
 <template>
-  <span class="mt-[48px] mr-[40px] flex gap-4">
+  <span class="mt-[48px] mr-[40px] mb-32 flex gap-4">
     <span><img :src="logoUrl" alt="" /></span>
     <span
       class="font-brand-1 text-[20px] font-bold leading-[25px] tracking-[-0.16em]"
@@ -34,8 +34,12 @@ import heroImageUrl from "@/assets/images/hero-image.png";
       </button>
     </router-link>
 
-    <div>
-      <img :src="heroImageUrl" alt="" class="mx-auto" />
-    </div>
+    <video
+      width="1000"
+      autoplay
+      loop
+      :src="videoUrl"
+      class="mx-auto mt-16"
+    ></video>
   </main>
 </template>

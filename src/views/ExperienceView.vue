@@ -3,19 +3,19 @@ import logoUrl from "@/assets/images/logo.svg";
 import blankPhoneUrl from "@/assets/images/blank-phone.png";
 import closeIconUrl from "@/assets/images/close-icon.svg";
 
-import { useRouter } from "vue-router";
-const router = useRouter();
-
 import { useUserStore } from "@/stores/user";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 const userStore = useUserStore();
 
-const handleGenerate = (event) => {
+const handleGenerate = (event: any) => {
   if (event.target.form.checkValidity()) {
     userStore.getRandomPhoto();
   }
 };
 
-const handleUpload = (event) => {
+const handleUpload = (event: any) => {
   if (event.target.form.checkValidity()) {
     userStore.allowUpload = true;
   }
@@ -25,7 +25,7 @@ const handleClose = () => {
   userStore.allowUpload = false;
 };
 
-const goToLivePage = (event) => {
+const goToLivePage = (event: any) => {
   if (event.target.form.checkValidity()) {
     router.push({ name: "live" });
   }

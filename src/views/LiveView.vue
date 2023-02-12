@@ -6,11 +6,29 @@ import appleIconUrl from "@/assets/images/apple-icon.svg";
 import { useUserStore } from "@/stores/user";
 const userStore = useUserStore();
 
-const handleGenerate = (event) => {
-  if (event.target.form.checkValidity()) {
-    userStore.getRandomPhoto();
-  }
-};
+(function removeLastMsg() {
+  setTimeout(() => {
+    userStore.removeLastMsg = true;
+  }, 3500);
+})();
+
+(function showFirstMsg() {
+  setTimeout(() => {
+    userStore.showFirstMsg = true;
+  }, 4000);
+})();
+
+(function showSecondMsg() {
+  setTimeout(() => {
+    userStore.showSecondMsg = true;
+  }, 5000);
+})();
+
+(function showThirdMsg() {
+  setTimeout(() => {
+    userStore.showThirdMsg = true;
+  }, 6000);
+})();
 </script>
 
 <template>
@@ -78,26 +96,70 @@ const handleGenerate = (event) => {
             class="absolute top-[144px] left-[150px] font-brand-1 text-sm font-medium leading-[22px] tracking-[-0.16em] text-brand-gray"
             >{{ userStore.imageDescription }}</span
           >
+          <Transition name="fade">
+            <span
+              class="absolute top-52 left-20 h-[40px] w-[320px] rounded-[20px] bg-brand-white p-[10px] font-brand-1 font-semibold leading-[20px] tracking-[-0.16em] text-brand-green"
+              v-if="userStore.showFirstMsg"
+              >So what should I work on today?</span
+            >
+          </Transition>
+          <Transition name="fade">
+            <span
+              class="absolute top-[265px] left-16 h-[60px] w-[297px] rounded-[20px] bg-brand-gray-2 p-[10px] font-brand-1 font-semibold leading-[20px] tracking-[-0.16em] text-brand-white"
+              v-if="userStore.showSecondMsg"
+              >Today is Monday, and you gotta know the drill.
+            </span>
+          </Transition>
           <span
-            class="absolute top-52 left-20 h-[40px] w-[320px] rounded-[20px] bg-brand-white p-[10px] font-brand-1 font-semibold leading-[20px] tracking-[-0.16em] text-brand-green"
-            >So what should I work on today?</span
-          >
-          <span
-            class="absolute top-[265px] left-16 h-[60px] w-[297px] rounded-[20px] bg-brand-gray-2 p-[10px] font-brand-1 font-semibold leading-[20px] tracking-[-0.16em] text-brand-white"
-            >Today is Monday, and you gotta know the drill.
-          </span>
-          <span
-            class="absolute top-[340px] left-16  w-[297px] rounded-[20px] bg-brand-gray-2 p-[10px] font-brand-1 font-semibold leading-[20px] tracking-[-0.16em] text-brand-white"
+            class="absolute top-[340px] left-16 w-[297px] rounded-[20px] bg-brand-gray-2 p-[10px] font-brand-1 font-semibold leading-[20px] tracking-[-0.16em] text-brand-white"
+            v-if="userStore.showThirdMsg"
           >
             Start with deadlifts, then move on to pullups. I know your max is
             220lbs, but try pushing to 300lbs this time.
           </span>
-          <span
-            class="absolute top-[776px] left-14 h-[44px] w-[348px] rounded-[22px] border border-solid border-brand-white px-6 py-2 font-brand-1 font-light leading-[20px] tracking-[-0.16em] text-brand-white"
-            >So what should I work on?</span
-          >
+          <Transition name="bounce">
+            <span
+              class="absolute top-[776px] left-14 h-[44px] w-[348px] rounded-[22px] border border-solid border-brand-white px-6 py-2 font-brand-1 font-light leading-[20px] tracking-[-0.16em] text-brand-white"
+              v-if="!userStore.removeLastMsg"
+              >So what should I work on?</span
+            >
+          </Transition>
         </span>
       </div>
     </div>
   </main>
 </template>
+
+<style>
+.bounce-leave-active {
+  animation: bounce-out 0.5s ease-out;
+}
+
+@keyframes bounce-out {
+  0% {
+    transform: scale(1);
+    transform: 1;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.fade-enter-active {
+  animation: fade-in 0.5s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+</style>

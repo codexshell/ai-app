@@ -9,6 +9,10 @@ export const useUserStore = defineStore("UserStore", {
     randomImageUrl: "",
     showAlternateInformation: false,
     allowUpload: false,
+    removeLastMsg: false,
+    showFirstMsg: false,
+    showSecondMsg: false,
+    showThirdMsg: false,
   }),
 
   // Computed

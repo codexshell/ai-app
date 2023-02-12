@@ -85,27 +85,31 @@ const goToLivePage = (event) => {
             class="mt-8 block h-[25px] font-brand-1 text-[20px] font-light leading-[25px] tracking-[-0.16em] text-brand-gray"
             >Upload Your Data</label
           >
-          <button
-            v-if="!userStore.allowUpload"
-            v-on:click="handleUpload"
-            class="backdrop-filter-[20px] mt-4 h-[52px] w-[380px] rounded-[20px] bg-brand-white text-center font-brand-1 font-semibold leading-[20px] tracking-[-0.16em] text-brand-black"
-          >
-            Upload
-          </button>
-          <div class="relative" v-if="userStore.allowUpload">
-            <input
-              type="file"
-              required
-              id="upload-data"
-              class="mt-4 w-[380px] rounded-[20px] bg-brand-button-gray py-4 pl-6 backdrop-blur-[40px]"
-            />
+          <Transition name="bounce">
             <button
-              class="absolute top-9 left-[340px]"
-              v-on:click="handleClose"
+              v-if="!userStore.allowUpload"
+              v-on:click="handleUpload"
+              class="backdrop-filter-[20px] mt-4 h-[52px] w-[380px] rounded-[20px] bg-brand-white text-center font-brand-1 font-semibold leading-[20px] tracking-[-0.16em] text-brand-black"
             >
-              <img :src="closeIconUrl" alt="" />
+              Upload
             </button>
-          </div>
+          </Transition>
+          <Transition name="delay">
+            <div class="relative" v-if="userStore.allowUpload">
+              <input
+                type="file"
+                required
+                id="upload-data"
+                class="mt-4 w-[380px] rounded-[20px] bg-brand-button-gray py-4 pl-6 backdrop-blur-[40px]"
+              />
+              <button
+                class="absolute top-9 left-[340px]"
+                v-on:click="handleClose"
+              >
+                <img :src="closeIconUrl" alt="" />
+              </button>
+            </div>
+          </Transition>
           <button
             class="mt-8 block h-[52px] w-[380px] rounded-[20px] bg-brand-blue font-brand-1 font-semibold leading-[20px] tracking-[-0.16em] text-brand-white backdrop-blur-[40px]"
             v-on:click="goToLivePage"
@@ -144,3 +148,40 @@ const goToLivePage = (event) => {
     </div>
   </main>
 </template>
+
+<style>
+.bounce-leave-active {
+  animation: bounce-out 0.5s ease-out;
+}
+
+@keyframes bounce-out {
+  0% {
+    transform: scale(1);
+    transform: 1;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.delay-enter-active {
+  animation: delay-before 1.25s;
+}
+
+@keyframes delay-before {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+</style>

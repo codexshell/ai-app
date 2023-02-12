@@ -87,6 +87,12 @@ const handleGenerate = (event) => {
             >Today is Monday, and you gotta know the drill.
           </span>
           <span
+            class="absolute top-[340px] left-16  w-[297px] rounded-[20px] bg-brand-gray-2 p-[10px] font-brand-1 font-semibold leading-[20px] tracking-[-0.16em] text-brand-white"
+          >
+            Start with deadlifts, then move on to pullups. I know your max is
+            220lbs, but try pushing to 300lbs this time.
+          </span>
+          <span
             class="absolute top-[776px] left-14 h-[44px] w-[348px] rounded-[22px] border border-solid border-brand-white px-6 py-2 font-brand-1 font-light leading-[20px] tracking-[-0.16em] text-brand-white"
             >So what should I work on?</span
           >

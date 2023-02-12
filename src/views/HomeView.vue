@@ -26,11 +26,13 @@ import heroImageUrl from "@/assets/images/hero-image.png";
     </p>
   </header>
   <main>
-    <button
-      class="mx-auto mt-6 block h-[52px] w-[200px] rounded-[16px] bg-brand-blue text-center font-brand-2 font-bold leading-[36px] text-brand-white"
-    >
-      early access
-    </button>
+    <router-link :to="{ name: 'experience' }">
+      <button
+        class="mx-auto mt-6 block h-[52px] w-[200px] rounded-[16px] bg-brand-blue text-center font-brand-2 font-bold leading-[36px] text-brand-white"
+      >
+        early access
+      </button>
+    </router-link>
 
     <div>
       <img :src="heroImageUrl" alt="" class="mx-auto" />

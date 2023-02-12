@@ -15,7 +15,7 @@ module.exports = {
         "brand-button-gray": "#FFFFFF33",
       },
       backgroundImage: {
-        "brand-main": "url('src/assets/Rectangle 17.png')",
+        "brand-main": "url('src/assets/images/background.png')",
       },
     },
   },

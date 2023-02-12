@@ -10,28 +10,20 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: "/page-two",
-      name: "two",
+      path: "/experience",
+      name: "experience",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import("../views/PageTwoView.vue"),
+      component: () => import("../views/ExperienceView.vue"),
     },
     {
-      path: "/page-three",
-      name: "three",
+      path: "/live",
+      name: "live",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import("../views/PageThreeView.vue"),
-    },
-    {
-      path: "/page-four",
-      name: "four",
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import("../views/PageFourView.vue"),
+      component: () => import("../views/LiveView.vue"),
     },
   ],
 });

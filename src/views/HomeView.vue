@@ -2,11 +2,6 @@
 import { RouterLink } from "vue-router";
 import logoUrl from "@/assets/images/logo.svg";
 import videoUrl from "@/assets/videos/finaldemo.mp4";
-import { ref, onMounted } from "vue";
-
-const video = ref<HTMLVideoElement | null>(null);
-
-onMounted(() => console.log(video!.value!.play()));
 </script>
 
 <template>
@@ -41,7 +36,8 @@ onMounted(() => console.log(video!.value!.play()));
       </router-link>
 
       <video
-        ref="video"
+        playsinline
+        muted
         width="1000"
         autoplay
         loop

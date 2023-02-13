@@ -2,10 +2,15 @@
 import { RouterLink } from "vue-router";
 import logoUrl from "@/assets/images/logo.svg";
 import videoUrl from "@/assets/videos/finaldemo.mp4";
+import { ref, onMounted } from "vue";
+
+const video = ref<HTMLVideoElement | null>(null);
+
+onMounted(() => console.log(video!.value!.play()));
 </script>
 
 <template>
-  <span class="mt-[48px] mr-[40px] mb-32 flex gap-4">
+  <span class="mt-[48px] mr-[40px] flex gap-4">
     <span><img :src="logoUrl" alt="" /></span>
     <span
       class="font-brand-1 text-[20px] font-bold leading-[25px] tracking-[-0.16em]"
@@ -35,6 +40,7 @@ import videoUrl from "@/assets/videos/finaldemo.mp4";
     </router-link>
 
     <video
+      ref="video"
       width="1000"
       autoplay
       loop

@@ -9,25 +9,25 @@ const userStore = useUserStore();
 (function removeLastMsg() {
   setTimeout(() => {
     userStore.removeLastMsg = true;
-  }, 3000);
+  }, 2000);
 })();
 
 (function showFirstMsg() {
   setTimeout(() => {
     userStore.showFirstMsg = true;
-  }, 3500);
+  }, 2500);
 })();
 
 (function showSecondMsg() {
   setTimeout(() => {
     userStore.showSecondMsg = true;
-  }, 4500);
+  }, 3500);
 })();
 
 (function showThirdMsg() {
   setTimeout(() => {
     userStore.showThirdMsg = true;
-  }, 5500);
+  }, 4500);
 })();
 </script>
 
